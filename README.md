@@ -1,1 +1,2 @@
-# cs550_loc
+# CS550 Team Project LoC
+## Look on Combination
