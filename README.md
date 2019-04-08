@@ -3,6 +3,7 @@
 
 ### Downloading
 ```
+cd cs550_loc
 git clone https://github.com/bbaa2837/cs550_loc
 ```
 
