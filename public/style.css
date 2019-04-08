@@ -1,3 +1,70 @@
+body {
+    text-align: center;
+    background-color: #090707;
+    display: center;
+}
+
+nav, section, aside {
+    float: left;
+    height: 200px;
+}
+nav {
+    background-color: goldenrod;
+    width: 100px;
+}
+section {
+    background-color: green;   
+    width: 604px;
+}
+aside {
+    background-color: goldenrod;
+    width: 100px;
+}
+
 h1 {
-    color: blue;
+    color: greenyellow;
+    text-shadow: 2px 2px 2px green;
+    
+}
+.center {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.score {
+    border: 3px solid;
+    border-color: green;
+}
+.search {
+    overflow: hidden;
+    width: 30%;
+}
+.search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #f1f1f1;
+}
+.search button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+.search button:hover {
+    background: #0b7dda;
+}
+form.search_text::after {
+    content: "";
+    clear: both;
+    display: table;
 }
