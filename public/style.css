@@ -1,30 +1,41 @@
 body {
     text-align: center;
+    font-size: 54px;
     background-color: #090707;
     display: center;
+    width: 100%;
+}
+div#wapper {
+    width: 100%;
+    text-align: left;
+    min-height: 300px;
+    margin: 0 auto;
 }
 
 nav, section, aside {
+    margin: 5px;
+    padding: 10px;
     float: left;
-    height: 200px;
 }
 nav {
-    background-color: goldenrod;
-    width: 100px;
+    margin-left: 2%;
+    width: 15%;
+    border: 3px solid;
+    border-color: blue;
+    height: 90%;
 }
 section {
-    background-color: green;   
-    width: 604px;
+    width: 60%;
 }
 aside {
-    background-color: goldenrod;
-    width: 100px;
+    width: 15%;
+    border: 3px solid;
+    border-color: red;
+    height: 90%;
 }
-
 h1 {
     color: greenyellow;
-    text-shadow: 2px 2px 2px green;
-    
+    text-shadow: 2px 2px 2px green;    
 }
 .center {
     display: block;
@@ -36,6 +47,7 @@ h1 {
 .score {
     border: 3px solid;
     border-color: green;
+    margin-bottom: 5px;
 }
 .search {
     overflow: hidden;
@@ -67,4 +79,7 @@ form.search_text::after {
     content: "";
     clear: both;
     display: table;
+}
+.champions {
+    width: 100%;
 }
