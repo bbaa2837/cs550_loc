@@ -17,3 +17,9 @@ npm install
 npm run dev:server
 npm run dev:client
 ```
+### For crawling
+Python is needed
+```
+pip install requests
+pip install bs4
+```
