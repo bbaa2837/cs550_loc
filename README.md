@@ -23,3 +23,8 @@ Python is needed
 pip install requests
 pip install bs4
 ```
+
+To crawl champions and images, run
+```
+python crawler.py
+```
