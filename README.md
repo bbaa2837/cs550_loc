@@ -1,6 +1,10 @@
 # CS550 Team Project LoC
 ## Look on Combination
 
+###Environments Specification
+Web browser: Chrome, Safari
+Python v2.7
+
 ### Downloading
 ```
 cd cs550_loc
