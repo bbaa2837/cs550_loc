@@ -40,7 +40,7 @@
                 <div class="center champions" id="chmpss">
                     <div class="gallery" id="chmpgal">
                         <a target="_blank">
-                            <img id="chmpimg" src="/images/champion_images/aatrox.png" alt="aatrox" width="75" height="75">
+                            <img id="aatrox" src="/images/champion_images/aatrox.png" alt="aatrox" width="75" height="75">
                         </a>
                     </div>
                 </div>
@@ -71,15 +71,16 @@
             var lists;
             var bod = document.getElementById('chmpss');
             var gal = document.getElementById('chmpgal');
-            var image = document.getElementById('chmpimg');
+            var image = document.getElementById('aatrox');
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     lists = JSON.parse(this.responseText);
                     console.log(lists.files);
                     console.log(lists.files[8]);
-                    for(var i = 2; i < 143; i++){
+                    for(var i = 2; i <= 143; i++){
                         var gal_n = gal.cloneNode();
                         var image_n = image.cloneNode();
+                        image_n.id = lists.files[i].split('.')[0];
                         image_n.src = '/images/champion_images/' + lists.files[i];
                         bod.appendChild(gal_n);
                         gal_n.appendChild(image_n);
