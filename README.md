@@ -2,9 +2,9 @@
 ## Look on Combination
 
 ### Environments Specification
-Web browser: Chrome, Safari
-Python v2.7
-nodejs v10.15.3
+1. Web browser: Chrome, Safari
+2. Python v2.7
+3. Nodejs v10.15.3
 
 ### Downloading
 ```
@@ -24,7 +24,7 @@ npm run dev:server
 npm run dev:client
 ```
 ### For crawling
-Python is needed
+Python libraries are needed
 ```
 pip install requests
 pip install bs4
