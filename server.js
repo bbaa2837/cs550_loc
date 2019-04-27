@@ -13,30 +13,30 @@ const matchbyaccountid = '/lol/match/v4/matchlists/by-account/';
 var name = encodeURIComponent("프제짱");
 
 var accountid = "";
-// rp(kor_url+summoner+name+key).then(function (html) {
-//     console.log("From KOR Server kor name")
-//     console.log("==============================")
-//     var raw = html.replace('{','').replace('}','').split(",");
-//     var item = [];
-//     var value = [];
-//     for (var i = 0; i < raw.length; i++){
-//         console.log(raw[i]);
-//         raw[i] = raw[i].replace(/"/g, '');
-//         item[i] = raw[i].split(':')[0];
-//         value[i] = raw[i].split(':')[1];
-//     }
-//     console.log(item);
-//     console.log(value);
-//     accountid = value[1];
-//     console.log("==============================");
-//     return rp(kor_url+matchbyaccountid+accountid+key);
-//   }).then(function(html) {
-//     console.log("match info");
-//     console.log("==============================");
-//     console.log(accountid);
-//     console.log(html);
-//     console.log("==============================");
-//   })
+rp(kor_url+summoner+name+key).then(function (html) {
+    console.log("From KOR Server kor name")
+    console.log("==============================")
+    var raw = html.replace('{','').replace('}','').split(",");
+    var item = [];
+    var value = [];
+    for (var i = 0; i < raw.length; i++){
+        console.log(raw[i]);
+        raw[i] = raw[i].replace(/"/g, '');
+        item[i] = raw[i].split(':')[0];
+        value[i] = raw[i].split(':')[1];
+    }
+    console.log(item);
+    console.log(value);
+    accountid = value[1];
+    console.log("==============================");
+    return rp(kor_url+matchbyaccountid+accountid+key);
+  }).then(function(html) {
+    console.log("match info");
+    console.log("==============================");
+    console.log(accountid);
+    console.log(html);
+    console.log("==============================");
+  })
 
 //For nodejs-html
 const express = require('express');
