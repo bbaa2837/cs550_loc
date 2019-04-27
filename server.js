@@ -129,7 +129,7 @@ async function myFunc(accountid){
     // f = fso.OpenTextFile("test.csv", ForWriting, true);
     // f.Write("aaaafsg");
     // f.Close();
-    if(iter < 1000){
+    if(iter < 10){
       iter = iter + 1;
       await sleep(2000);
       myFunc(accountid);
