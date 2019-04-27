@@ -1,7 +1,3 @@
-// const http = require('http');
-// const url = require('url');
-// const fs = require('fs');
-
 //For Riot API Call
 const request = require('request');
 const rp = require('request-promise');
@@ -18,14 +14,22 @@ var usedmatchid = [];
 var iter = 0;
 var ran = 0;
 var matchinfo = "";
-
-fs.writeFile("test.csv", "Match Id, Game Duration, Champion Id\n", function(err) {
+fs.writeFile("test2.csv", "Match Id, Game Duration, Win Team, Champion Id\n", function(err) {
   if(err) {
     return console.log(err);
   }
   console.log("The file was saved!");
 }); 
-function myFunc(accountid){
+fs.writeFile("summonernames.csv", "", function(err) {
+  if(err) {
+    return console.log(err);
+  }
+  console.log("The file was saved!");
+}); 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+async function myFunc(accountid){
   // rp(kor_url+summoner+name+key).then(function (html) {
   //   console.log("From KOR Server kor name")
   //   console.log("==============================")
@@ -66,7 +70,7 @@ function myFunc(accountid){
     //   console.log('Saved!');
     // });
     return rp(kor_url+matchbymatchid+gameid[ran]+key);
-  }).then(function(html) {
+  }).then(async function(html) {
     // console.log("matches");;
     // console.log("================================");
     // html = html.replace(/",/gi,'\n');
@@ -97,14 +101,22 @@ function myFunc(accountid){
     //   if (err) throw err;
     //   console.log('Saved2!');
     // });
-    matchinfo = gameid[ran] + ',' + aaaaa.gameDuration.toString() + ',';
+    matchinfo = gameid[ran] + ',' + aaaaa.gameDuration.toString() + ',' + aaaaa.teams[0].win + ',';
+    var summonerdata = "";
 
     for(var i = 0; i < 10; i++){
-      // console.log(aaaaa.participants[i].championId);
+      // console.log(aaaaa.participants[i].championId))
+      summonerdata = summonerdata + aaaaa.participantIdentities[i].player.summonerName + ',' + aaaaa.participants[i].championId.toString() + '\n';
+      // console.log(aaaaa.participantIdentities[i].player.summonerName);
+      // console.log(summonerdata);
       matchinfo = matchinfo + aaaaa.participants[i].championId.toString() + ','
     }
 
-    fs.appendFile('test.csv', matchinfo + '\n', function (err) {
+    fs.appendFile('summonernames.csv', summonerdata, function (err) {
+      if (err) throw err;
+    });
+
+    fs.appendFile('test2.csv', matchinfo + '\n', function (err) {
       if (err) throw err;
     });
 
@@ -117,8 +129,9 @@ function myFunc(accountid){
     // f = fso.OpenTextFile("test.csv", ForWriting, true);
     // f.Write("aaaafsg");
     // f.Close();
-    if(iter < 5){
+    if(iter < 1000){
       iter = iter + 1;
+      await sleep(2000);
       myFunc(accountid);
     }
     // return rp(kor_url+matchbyaccountid+accountid+key);
