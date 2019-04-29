@@ -48,3 +48,7 @@ For gathering win rate for champions of each player
 ```
 python3 crawler-winrate.py summonname-champname.csv
 ```
+
+### Setting DB
+npm install mysql
+
