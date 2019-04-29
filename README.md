@@ -3,7 +3,7 @@
 
 ### Environments Specification
 1. Web browser: Chrome, Safari
-2. Python v2.7
+2. Python v3.5 or higher
 3. Nodejs v10.15.3
 
 ### Downloading
@@ -26,11 +26,25 @@ npm run dev:client
 ### For crawling
 Python libraries are needed
 ```
-pip install requests
-pip install bs4
+pip3 install requests
+pip3 install bs4
 ```
 
 To crawl champions and images, run
 ```
-python crawler.py
+python3 crawler.py
+```
+
+### Preprocessing data
+Change iteration of data collection -> change numofiterations in server.js(line 17).
+
+
+For changing champion id to name
+```
+python3 champion-id-to-name-converter.py <csv file you want to convert>
+```
+
+For gathering win rate for champions of each player
+```
+python3 crawler-winrate.py summonname-champname.csv
 ```

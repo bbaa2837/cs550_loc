@@ -4,7 +4,9 @@ import sys
 
 # The input is the summonername-champid file
 # EXPECTED FORMAT OF FILE:
-# summonername,champid
+# summoner name, champion id
+# EXPECTED OUTPUT OF FILE:
+# summoner name, champion name
 file = open(sys.argv[1], encoding='utf-8')
 lines = [line.strip().split(',') for line in file]
 file.close()
