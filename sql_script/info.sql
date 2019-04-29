@@ -3,10 +3,8 @@ CREATE DATABASE info;
 USE info;
 
 CREATE TABLE champion (
-`id` INT NOT NULL PRIMARY KEY,
 `name` VARCHAR(50),
-`mastery` VARCHAR(50),
-`item` VARCHAR(50)
+`id` INT NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE item (
