@@ -34,6 +34,7 @@ def crawl_winrate(username, champname):
             else:
                 rate = rate_order[i][roidx + 12:roidx + 14]
             exist = 1
+            return rate
     if(exist == 0):
         rate = "Never played in Rank"
     return rate
