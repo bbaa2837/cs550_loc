@@ -16,6 +16,7 @@ cd cs550_loc
 ```
 npm install
 mkdir public\images\champion_images
+mkdir public\images\mastery_images
 ```
 
 ### Running
@@ -30,7 +31,7 @@ pip3 install requests
 pip3 install bs4
 ```
 
-To crawl champions and images, run
+To crawl champions, masteries and images, run
 ```
 python3 crawler.py
 ```

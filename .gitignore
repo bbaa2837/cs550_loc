@@ -1,5 +1,6 @@
 node_modules
 public/images/champion_images/*.png
+public/images/mastery_images/*.png
 .vscode
 .DS_Store
 *.csv
