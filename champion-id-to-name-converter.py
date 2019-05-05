@@ -20,7 +20,7 @@ for line in idToNameFile:
 
 idToNameFile.close()
 
-output = open('summonname-champname.csv', 'w', encoding='utf-8')
+output = open('summonname-champname2.csv', 'w', encoding='utf-8')
 
 for line in lines:
   if not line[1] in idToNameDict:

@@ -15,7 +15,7 @@ var iter = 0;
 var ran = 0;
 var matchinfo = "";
 var numofiterations = 9999;
-var testfile = "test.csv"
+var testfile = "test2.csv"
 
 // fs.writeFile(testfile, "Match Id, Game Duration, Win Team, Champion Id\n", function(err) {
 //   if(err) {

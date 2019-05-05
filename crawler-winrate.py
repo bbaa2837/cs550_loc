@@ -36,16 +36,18 @@ def crawl_winrate(username, champname):
             exist = 1
             return rate
     if(exist == 0):
-        rate = "Never played in Rank"
+        f = open('champion-normal-winrate.txt').read()
+        print(champname)
+        nonidx = f.index(champname)
+        rate = f[nonidx + len(champname) + 1:nonidx + len(champname) + 3]
+        # rate = "Never played in Rank"
+        
     return rate
 
-output = open('sum-champ-winrate.csv', 'w', encoding='utf-8')
+output = open('sum-champ-winrate2.csv', 'w', encoding='utf-8')
 
 for line in lines:
     line.append(crawl_winrate(line[0], line[1]))
     output.write(','.join(line) + '\n')
 
 output.close()
-
-
-crawl_winrate('레피토스', 'Lucian')
