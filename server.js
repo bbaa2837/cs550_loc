@@ -2,6 +2,7 @@
 const request = require('request');
 const rp = require('request-promise');
 const fs = require('fs');
+const ejs = require('ejs');
 
 const key = 'api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
 const kor_url = 'https://kr.api.riotgames.com';
@@ -145,6 +146,8 @@ async function myFunc(accountid){
 myFunc("DtnkSr7b3YmW5qm6A4Q1nviR9GBEy7YyfDiAYrfzsOBf");
 
 
+
+
 //For nodejs-html
 const express = require('express');
 const app = express();
@@ -156,3 +159,20 @@ app.engine('html', require('ejs').renderFile);
 var server = app.listen(3000, function(){
   console.log("Express server has started on port 3000")
 });
+
+//For DB
+const mysql = require('mysql')
+const dbconfig = require('./config/database.js');
+const connection = mysql.createConnection(dbconfig);
+
+
+app.get('/info', function(req, res){
+
+  connection.query('SELECT * from champion', function(err, rows) {
+    if(err) throw err;
+
+    console.log('The solution is: ', rows);
+    res.send(rows);
+  });
+});
+
