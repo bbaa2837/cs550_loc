@@ -3,7 +3,7 @@ const request = require('request');
 const rp = require('request-promise');
 const fs = require('fs');
 
-const key = '?api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
+const key = 'api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
 const kor_url = 'https://kr.api.riotgames.com';
 const summoner = '/lol/summoner/v4/summoners/by-name/';
 const matchbyaccountid = '/lol/match/v4/matchlists/by-account/';
@@ -14,20 +14,21 @@ var usedmatchid = [];
 var iter = 0;
 var ran = 0;
 var matchinfo = "";
-var numofiterations = 9;
+var numofiterations = 9999;
+var testfile = "test2.csv"
 
-fs.writeFile("test2.csv", "Match Id, Game Duration, Win Team, Champion Id\n", function(err) {
-  if(err) {
-    return console.log(err);
-  }
-  console.log("The file was saved!");
-}); 
-fs.writeFile("summonernames.csv", "", function(err) {
-  if(err) {
-    return console.log(err);
-  }
-  console.log("The file was saved!");
-}); 
+// fs.writeFile(testfile, "Match Id, Game Duration, Win Team, Champion Id\n", function(err) {
+//   if(err) {
+//     return console.log(err);
+//   }
+//   console.log("The file was saved!");
+// }); 
+// fs.writeFile("summonernames.csv", "", function(err) {
+//   if(err) {
+//     return console.log(err);
+//   }
+//   console.log("The file was saved!");
+// }); 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -50,7 +51,7 @@ async function myFunc(accountid){
   //   console.log("==============================");
   //   return rp(kor_url+matchbyaccountid+accountid+key);
   // }).then(function(html) {
-  rp(kor_url+matchbyaccountid+accountid+key).then(function (html) {
+  rp(kor_url+matchbyaccountid+accountid+'?queue=420&'+key).then(function (html) {
     // console.log("match info");
     // console.log("==============================");
     var gameidx = [], result, kw = /gameId/g;
@@ -71,7 +72,7 @@ async function myFunc(accountid){
     //   if (err) throw err;
     //   console.log('Saved!');
     // });
-    return rp(kor_url+matchbymatchid+gameid[ran]+key);
+    return rp(kor_url+matchbymatchid+gameid[ran]+'?'+key);
   }).then(async function(html) {
     // console.log("matches");;
     // console.log("================================");
@@ -118,7 +119,7 @@ async function myFunc(accountid){
       if (err) throw err;
     });
 
-    fs.appendFile('test2.csv', matchinfo + '\n', function (err) {
+    fs.appendFile(testfile, matchinfo + '\n', function (err) {
       if (err) throw err;
     });
 

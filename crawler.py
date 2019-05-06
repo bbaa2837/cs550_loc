@@ -69,6 +69,30 @@ def crawl_mastery(champnum):
         filename = dir_path + '/public/images/mastery_images/' + champnum.split('-')[0] + '.png'
         with open(filename, "wb") as f:
                 f.write(img_content)    
-    
+
+def crawl_winrate():
+#     url = "http://fow.kr/statistics"
+    f = open("champion-normal-winrate.txt", 'w')
+    url = "https://www.op.gg/champion/statistics"
+    req = requests.get(url)
+    plain_text = req.text
+    soup = str(BeautifulSoup(plain_text, 'html.parser'))
+#     soup = soup.select('#r_out > tr:nth-child(1) > td:nth-child(7)')
+    chmp_list = [0] * 715
+    wr_list = [0] * 715
+    for i in range(715):
+        print(i)
+        chmp_list[i] = soup.index('champion-index-table__name')
+        wr_list[i] = soup.index('champion-index-table__cell champion-index-table__cell--value')
+        soup2 = soup[chmp_list[i] + 28:]
+        endindx = soup2.index('</div>')
+        # print(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx])
+        # print(soup[wr_list[i] + 62:wr_list[i] + 68])
+        f.write(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx] + ',' + soup[wr_list[i] + 62:wr_list[i] + 68] + '\n')
+        soup = soup[wr_list[i] + 300:]
+#     print(wr_list)
+    f.close()
+
 crawl_list()
-crawl_champnum()
+# crawl_champnum()
+# crawl_winrate()
