@@ -51,5 +51,8 @@ python3 crawler-winrate.py summonname-champname.csv
 ```
 
 ### Setting DB
+```
 npm install mysql
+```
 
+check the database connection from localhost:3000/info
