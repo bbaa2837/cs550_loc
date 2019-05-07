@@ -10,5 +10,8 @@
     "scripts": {
         "dev:server": "nodemon server.js",
         "dev:client": "browser-sync start -w --port 4000 --proxy localhost:3000 --files . --reload-delay 100"
+    },
+    "dependencies": {
+        "mysql": "^2.17.1"
     }
 }

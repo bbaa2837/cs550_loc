@@ -94,5 +94,5 @@ def crawl_winrate():
     f.close()
 
 crawl_list()
-# crawl_champnum()
-# crawl_winrate()
+crawl_champnum()
+crawl_winrate()

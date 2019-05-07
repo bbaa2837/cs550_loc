@@ -2,7 +2,7 @@
 const request = require('request');
 const rp = require('request-promise');
 const fs = require('fs');
-const ejs = require('ejs');
+// const ejs = require('ejs');
 
 const key = 'api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
 const kor_url = 'https://kr.api.riotgames.com';
@@ -143,7 +143,7 @@ async function myFunc(accountid){
     // return rp(kor_url+matchbyaccountid+accountid+key);
   });
 }
-myFunc("DtnkSr7b3YmW5qm6A4Q1nviR9GBEy7YyfDiAYrfzsOBf");
+// myFunc("DtnkSr7b3YmW5qm6A4Q1nviR9GBEy7YyfDiAYrfzsOBf");
 
 
 
