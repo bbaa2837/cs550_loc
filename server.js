@@ -161,18 +161,41 @@ var server = app.listen(3000, function(){
 });
 
 //For DB
-const mysql = require('mysql')
-const dbconfig = require('./config/database.js');
-const connection = mysql.createConnection(dbconfig);
 
+const mongoose = require('mongoose');
+
+var db = mongoose.connection;
+db.once("open", function(){
+  console.log("DB connected!");
+})
+
+db.on("error", function(err){
+  console.log("DB ERROR:", err);
+})
+
+
+const Champion = require('./models/champion')
+
+console.log(Champion)
 
 app.get('/info', function(req, res){
 
-  connection.query('SELECT * from champion', function(err, rows) {
-    if(err) throw err;
-
-    console.log('The solution is: ', rows);
-    res.send(rows);
-  });
+  console.log("get INFO");
+  // res.send("hello")
+  
+  Champion.find({name : 'Annie'})
+    .then((champ) => {
+      if(!champ.length) return res.status(404).send({err : 'Champion not found'});
+      res.send(`find successfully : ${champ}`);
+    })
+    .catch(err => res.status(500).send(err))
 });
+
+
+// //my sql try
+// const mysql = require('mysql')
+// const dbconfig = require('./config/database.js');
+// const connection = mysql.createConnection(dbconfig);
+
+
 
