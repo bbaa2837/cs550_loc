@@ -2,7 +2,7 @@
 const request = require('request');
 const rp = require('request-promise');
 const fs = require('fs');
-// const ejs = require('ejs');
+const ejs = require('ejs');
 
 const key = 'api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
 const kor_url = 'https://kr.api.riotgames.com';
@@ -164,7 +164,6 @@ var server = app.listen(3000, function(){
 const mysql = require('mysql')
 const dbconfig = require('./config/database.js');
 const connection = mysql.createConnection(dbconfig);
-
 
 app.get('/info', function(req, res){
 
