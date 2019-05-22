@@ -14,26 +14,13 @@ cd cs550_loc
 
 ### Before Start
 ```
-npm install
-mkdir public\images\champion_images
-mkdir public\images\mastery_images
+./start_setup.sh
 ```
 
 ### Running
 ```
 npm run dev:server
 npm run dev:client
-```
-### For crawling
-Python libraries are needed
-```
-pip3 install requests
-pip3 install bs4
-```
-
-To crawl champions, masteries and images, run
-```
-python3 crawler.py
 ```
 
 ### Preprocessing data
@@ -50,8 +37,5 @@ For gathering win rate for champions of each player
 python3 crawler-winrate.py summonname-champname.csv
 ```
 
-### Setting DB
-```
-npm install mongoose
-```
+### DB
 check the database connection from localhost:3000/info

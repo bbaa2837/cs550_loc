@@ -162,16 +162,12 @@ var server = app.listen(3000, function(){
 
 //For DB
 
-<<<<<<< HEAD
-app.get('/info', function(req, res){
-=======
 const mongoose = require('mongoose');
 
 var db = mongoose.connection;
 db.once("open", function(){
   console.log("DB connected!");
 })
->>>>>>> b75e87bdd8151c52c9193c2076afe4f74ca8d14a
 
 db.on("error", function(err){
   console.log("DB ERROR:", err);
