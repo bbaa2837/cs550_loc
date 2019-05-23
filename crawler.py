@@ -82,14 +82,17 @@ def crawl_winrate():
     wr_list = [0] * 715
     for i in range(715):
         print(i)
-        chmp_list[i] = soup.index('champion-index-table__name')
-        wr_list[i] = soup.index('champion-index-table__cell champion-index-table__cell--value')
-        soup2 = soup[chmp_list[i] + 28:]
-        endindx = soup2.index('</div>')
-        # print(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx])
-        # print(soup[wr_list[i] + 62:wr_list[i] + 68])
-        f.write(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx] + ',' + soup[wr_list[i] + 62:wr_list[i] + 68] + '\n')
-        soup = soup[wr_list[i] + 300:]
+        try:
+                chmp_list[i] = soup.index('champion-index-table__name')
+                wr_list[i] = soup.index('champion-index-table__cell champion-index-table__cell--value')
+                soup2 = soup[chmp_list[i] + 28:]
+                endindx = soup2.index('</div>')
+                # print(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx])
+                # print(soup[wr_list[i] + 62:wr_list[i] + 68])
+                f.write(soup[chmp_list[i] + 28:chmp_list[i] + 28 + endindx] + ',' + soup[wr_list[i] + 62:wr_list[i] + 68] + '\n')
+                soup = soup[wr_list[i] + 300:]
+        except ValueError as e:
+                print(e)
 #     print(wr_list)
     f.close()
 
