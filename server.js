@@ -161,10 +161,13 @@ var server = app.listen(3000, function(){
 });
 
 //For DB
+//npm run dev:server
 
 const mongoose = require('mongoose');
-
+mongoose.connect("mongodb://test:testtest1@ds155626.mlab.com:55626/loc");
 var db = mongoose.connection;
+console.log(db);
+
 db.once("open", function(){
   console.log("DB connected!");
 })
