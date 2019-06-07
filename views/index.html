@@ -8,20 +8,20 @@
             <!-- 크게 화면 레이아웃을 세 분류로 나눴음 nav, section, aside-->
             <nav>
                 <div id="champ_left">                    
-                    <!-- <img id="champ_left_1" src="/images/nan_left.jpg"> -->
-                    <img id="champ_left_1" src="/images/champion_images/ahri.png">
+                    <img id="champ_1" src="/images/nan_left.jpg">
+                    <!-- <img id="champ_1" src="/images/champion_images/ahri.png"> -->
                 </div>
                 <div id="champ_left">
-                    <img id="champ_left_2" src="/images/nan_left.jpg">
+                    <img id="champ_4" src="/images/nan_left.jpg">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_left_3" src="/images/nan_left.jpg">
+                    <img id="champ_5" src="/images/nan_left.jpg">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_left_4" src="/images/nan_left.jpg">
+                    <img id="champ_8" src="/images/nan_left.jpg">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_left_5" src="/images/nan_left.jpg">
+                    <img id="champ_9" src="/images/nan_left.jpg">
                 </div>
             </nav>
             <section>
@@ -40,31 +40,34 @@
                 <div class="center champions" id="chmpss">
                     <div class="gallery" id="chmpgal">
                         <a target="_blank">
-                            <img id="aatrox" src="/images/champion_images/aatrox.png" alt="aatrox" width="75" height="75">
+                            <img id="aatrox" src="/images/champion_images/aatrox.png" alt="aatrox" width="75" height="75" onclick="imageclick(this)">
                         </a>
                     </div>
                 </div>
             </section>
             <aside>
                 <div id="champ_right">
-                    <img id="champ_right_1" src="/images/nan_right.jpg">
+                    <img id="champ_2" src="/images/nan_right.jpg">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_right_2" src="/images/nan_right.jpg">
+                    <img id="champ_3" src="/images/nan_right.jpg">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_right_3" src="/images/nan_right.jpg">
+                    <img id="champ_6" src="/images/nan_right.jpg">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_right_4" src="/images/nan_right.jpg">
+                    <img id="champ_7" src="/images/nan_right.jpg">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_right_5" src="/images/nan_right.jpg">
+                    <img id="champ_10" src="/images/nan_right.jpg">
                 </div>
             </aside>
         </div>
     </body>
     <script>
+        var pickleft = true;
+        var picknum = 1;
+        var pickedchampions = ['None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None'];
         // 챔피온 이미지 변경을 위한 JS
         window.onload = function changeimage(){
             var xmlhttp = new XMLHttpRequest();
@@ -89,6 +92,20 @@
             }
             xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
             xmlhttp.send();
+        }
+        function imageclick(img) {
+            var src = img.src
+            var path = 'champ_' + picknum
+            img.onclick = 'false'
+            img.style = 'opacity : 0.2'
+            papa = img.parentElement
+            papa.style = 'border : 1px solid gray'
+            pickedchampions[picknum] = img.id
+            console.log('alt = ' + img.id)
+            console.log(pickedchampions[picknum])
+            pick = document.getElementById(path)
+            pick.src = src
+            picknum += 1
         }
     </script>
 </html>
