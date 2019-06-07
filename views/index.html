@@ -38,9 +38,8 @@
 
                 <!-- <div class></div> -->
                 <div class="center search">
-                    <form class="search_text" action="">
-                        <input type="text" placeholder="LoC Search">
-                        <button type="submit"><i class = "fa fa-search"></i></button>
+                    <form class="search_text">
+                        <input type="text" placeholder="LoC Search" oninput="search(this.value)">
                     </form>
                 </div> 
                 
@@ -104,7 +103,33 @@
             xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
             xmlhttp.send();
         }
-
+        // function showchampion(champnames) {
+        //     document.createElement("")
+        // }
+        function search(name) {
+            console.log(name)
+            var xmlhttp = new XMLHttpRequest();
+            var lists;
+            document.getElementById('aatrox').parentElement.parentElement.style.display = 'none'
+            if('aatrox'.includes(name)){
+                document.getElementById('aatrox').parentElement.parentElement.style.display = 'block'
+            }
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    lists = JSON.parse(this.responseText);
+                    for(var i = 2; i <= 143; i++){
+                        var image_n = lists.files[i].split('.')[0];
+                        document.getElementById(image_n).parentElement.style.display = 'none'
+                        if(image_n.includes(name)) {
+                            // console.log(name + ' in ' + image_n)
+                            document.getElementById(image_n).parentElement.style.display = 'block'
+                        }
+                    }
+                }
+            }
+            xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
+            xmlhttp.send();
+        }
         function refresh() {
             pick = document.getElementById('champ_' + 1)
             pick.src = "/images/nan_left.jpg"
@@ -165,5 +190,6 @@
             document.getElementById('score_left').innerHTML = left;
             document.getElementById('score_right').innerHTML = right;
         }
+
     </script>
 </html>
