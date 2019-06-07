@@ -31,12 +31,19 @@
                 <div class="center score">
                     <h1>VS</h1>
                 </div>
+
+                <!-- <div class></div> -->
                 <div class="center search">
                     <form class="search_text" action="">
                         <input type="text" placeholder="LoC Search">
                         <button type="submit"><i class = "fa fa-search"></i></button>
                     </form>
-                </div>        
+                </div> 
+                
+                <div class="center refresh">
+                    <button class="refresh-button" onclick="refresh()"><i class = "fa fa-refresh"></i> Refresh</button>
+                </div>
+
                 <div class="center champions" id="chmpss">
                     <div class="gallery" id="chmpgal">
                         <a target="_blank">
@@ -89,6 +96,13 @@
             }
             xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
             xmlhttp.send();
+        }
+
+        function refresh() {
+            for (var i = 1; i <= 10; i++) {
+                pick = document.getElementById('champ_' + i)
+                pick.src = ""
+            }
         }
     </script>
 </html>
