@@ -74,10 +74,23 @@ h1 {
     margin-right: auto;
     width: 100%;
 }
-.score {
+#good {
     border: 3px solid;
     border-color: green;
-    margin-bottom: 5px;
+    margin: 5px;
+    height: 25%;
+}
+.score h1{
+    float: left;
+    width: 32%;
+}
+#score_left {
+    color: blue; 
+    text-shadow: 2px 2px 2px green;    
+}
+#score_right {
+    color: red; 
+    text-shadow: 2px 2px 2px green;    
 }
 .search {
     overflow: hidden;

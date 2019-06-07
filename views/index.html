@@ -29,7 +29,11 @@
                     <h1>SCORE</h1>
                 </div>
                 <div class="center score">
-                    <h1>VS</h1>
+                    <div id='good'>
+                        <h1 id='score_left'></h1>
+                        <h1>VS</h1>
+                        <h1 id='score_right'></h1>
+                    </div>
                 </div>
 
                 <!-- <div class></div> -->
@@ -131,6 +135,8 @@
                     papa = imag.parentElement
                 }
             }
+            document.getElementById('score_left').innerHTML = '';
+            document.getElementById('score_right').innerHTML = '';
             pickleft = true;
             picknum = 1;
             pickedchampions = ['None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None'];    
@@ -147,6 +153,17 @@
             pick.src = src
             picknum += 1
             console.log(pickedchampions)
+            if(pickedchampions[9] != 'None'){
+                calculatescore()
+            }
+        }
+        
+        function calculatescore() {
+            ///run python
+            var left = 1;
+            var right = 2;
+            document.getElementById('score_left').innerHTML = left;
+            document.getElementById('score_right').innerHTML = right;
         }
     </script>
 </html>
