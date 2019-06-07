@@ -8,20 +8,20 @@
             <!-- 크게 화면 레이아웃을 세 분류로 나눴음 nav, section, aside-->
             <nav>
                 <div id="champ_left">                    
-                    <img id="champ_1" src="/images/nan_left.jpg">
+                    <img id="champ_1" src="/images/nan_left.jpg" onclick="showitem(this)">
                     <!-- <img id="champ_1" src="/images/champion_images/ahri.png"> -->
                 </div>
                 <div id="champ_left">
-                    <img id="champ_4" src="/images/nan_left.jpg">
+                    <img id="champ_4" src="/images/nan_left.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_5" src="/images/nan_left.jpg">
+                    <img id="champ_5" src="/images/nan_left.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_8" src="/images/nan_left.jpg">
+                    <img id="champ_8" src="/images/nan_left.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_left">
-                    <img id="champ_9" src="/images/nan_left.jpg">
+                    <img id="champ_9" src="/images/nan_left.jpg" onclick="showitem(this)">
                 </div>
             </nav>
             <section>
@@ -57,21 +57,31 @@
             </section>
             <aside>
                 <div id="champ_right">
-                    <img id="champ_2" src="/images/nan_right.jpg">
+                    <img id="champ_2" src="/images/nan_right.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_3" src="/images/nan_right.jpg">
+                    <img id="champ_3" src="/images/nan_right.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_6" src="/images/nan_right.jpg">
+                    <img id="champ_6" src="/images/nan_right.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_7" src="/images/nan_right.jpg">
+                    <img id="champ_7" src="/images/nan_right.jpg" onclick="showitem(this)">
                 </div>
                 <div id="champ_right">
-                    <img id="champ_10" src="/images/nan_right.jpg">
+                    <img id="champ_10" src="/images/nan_right.jpg" onclick="showitem(this)">
                 </div>
             </aside>
+        </div>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal_item" src="/images/nan_right.jpg">
+        </div>
+
         </div>
     </body>
     <script>
@@ -106,6 +116,7 @@
         // function showchampion(champnames) {
         //     document.createElement("")
         // }
+        
         function search(name) {
             console.log(name)
             var xmlhttp = new XMLHttpRequest();
@@ -130,6 +141,7 @@
             xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
             xmlhttp.send();
         }
+        
         function refresh() {
             pick = document.getElementById('champ_' + 1)
             pick.src = "/images/nan_left.jpg"
@@ -191,5 +203,23 @@
             document.getElementById('score_right').innerHTML = right;
         }
 
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close")[0];
+        var modal_item = document.getElementById("modal_item");
+        function showitem(img) {
+            champname = img.src.replace('http://localhost:4000/images/champion_images/','')
+            if(champname.length < 15){
+                modal.style.display = "block";
+                modal_item.src = "http://localhost:4000/images/champion_images/" + champname;
+            }
+        }
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }        
     </script>
 </html>
