@@ -80,7 +80,7 @@ def crawl_winrate():
 #     soup = soup.select('#r_out > tr:nth-child(1) > td:nth-child(7)')
     chmp_list = [0] * 715
     wr_list = [0] * 715
-    for i in range(715):
+    for i in range(200):
         print(i)
         try:
                 chmp_list[i] = soup.index('champion-index-table__name')
