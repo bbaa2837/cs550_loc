@@ -124,13 +124,11 @@
             pick.src = "/images/nan_right.jpg"
             for (var i = 0; i < pickedchampions.length; i++) {
                 if(pickedchampions[i] != 'None'){
-                    img = document.getElementById(pickedchampions[i])
-                    img.onclick = "imageclick(this)"
-                    console.log(img.onclick)
-                    console.log(img)
-                    img.style = 'opacity : 1'
-                    papa = img.parentElement
-                    // papa.style = 'border : 1px solid gray'
+                    const imag = document.getElementById(pickedchampions[i])
+                    imag.onclick = function() {imageclick(imag)}
+                    console.log(imag.onclick)
+                    imag.style = 'opacity : 1'
+                    papa = imag.parentElement
                 }
             }
             pickleft = true;
@@ -144,7 +142,6 @@
             img.onclick = 'false'
             img.style = 'opacity : 0.2'
             papa = img.parentElement
-            // papa.style = 'border : 1px solid gray'
             pickedchampions[picknum - 1] = img.id
             pick = document.getElementById(path)
             pick.src = src
