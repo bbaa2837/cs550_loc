@@ -85,8 +85,8 @@
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     lists = JSON.parse(this.responseText);
-                    console.log(lists.files);
-                    console.log(lists.files[8]);
+                    // console.log(lists.files);
+                    // console.log(lists.files[8]);
                     for(var i = 2; i <= 143; i++){
                         var gal_n = gal.cloneNode();
                         var image_n = image.cloneNode();
@@ -102,10 +102,41 @@
         }
 
         function refresh() {
-            for (var i = 1; i <= 10; i++) {
-                pick = document.getElementById('champ_' + i)
-                pick.src = ""
+            pick = document.getElementById('champ_' + 1)
+            pick.src = "/images/nan_left.jpg"
+            pick = document.getElementById('champ_' + 2)
+            pick.src = "/images/nan_right.jpg"
+            pick = document.getElementById('champ_' + 3)
+            pick.src = "/images/nan_right.jpg"
+            pick = document.getElementById('champ_' + 4)
+            pick.src = "/images/nan_left.jpg"
+            pick = document.getElementById('champ_' + 5)
+            pick.src = "/images/nan_left.jpg"
+            pick = document.getElementById('champ_' + 6)
+            pick.src = "/images/nan_right.jpg"
+            pick = document.getElementById('champ_' + 7)
+            pick.src = "/images/nan_right.jpg"
+            pick = document.getElementById('champ_' + 8)
+            pick.src = "/images/nan_left.jpg"
+            pick = document.getElementById('champ_' + 9)
+            pick.src = "/images/nan_left.jpg"
+            pick = document.getElementById('champ_' + 10)
+            pick.src = "/images/nan_right.jpg"
+            for (var i = 0; i < pickedchampions.length; i++) {
+                if(pickedchampions[i] != 'None'){
+                    img = document.getElementById(pickedchampions[i])
+                    img.onclick = "imageclick(this)"
+                    console.log(img.onclick)
+                    console.log(img)
+                    img.style = 'opacity : 1'
+                    papa = img.parentElement
+                    // papa.style = 'border : 1px solid gray'
+                }
             }
+            pickleft = true;
+            picknum = 1;
+            pickedchampions = ['None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None'];    
+        }
             
         function imageclick(img) {
             var src = img.src
@@ -113,13 +144,12 @@
             img.onclick = 'false'
             img.style = 'opacity : 0.2'
             papa = img.parentElement
-            papa.style = 'border : 1px solid gray'
-            pickedchampions[picknum] = img.id
-            console.log('alt = ' + img.id)
-            console.log(pickedchampions[picknum])
+            // papa.style = 'border : 1px solid gray'
+            pickedchampions[picknum - 1] = img.id
             pick = document.getElementById(path)
             pick.src = src
             picknum += 1
+            console.log(pickedchampions)
         }
     </script>
 </html>
