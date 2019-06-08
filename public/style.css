@@ -54,14 +54,26 @@ div#champ_right{
     text-align: center;
 }
 nav img, aside img {
-    position: absolute;
+    /* position: absolute; */
     max-width:75%; max-height:75%;
     width:auto; height:auto;
     margin:auto;
-    top:0; bottom:0; left:0; right:0;
     align-self: center;
     object-fit: cover;
     border-radius: 50%;
+    vertical-align: middle;
+}
+.champ {
+    float: left;
+    width: 60%;
+}
+.mast {
+    float: right;
+    width: 30%;
+}
+.team {
+    display: inline-block;
+    vertical-align: middle;
 }
 h1 {
     color: greenyellow; 
@@ -94,10 +106,10 @@ h1 {
 }
 .search {
     overflow: hidden;
+    float: left;
     width: 30%;
     height: 5%;
     margin-bottom: 3px;
-    float: left;
 }
 
 .refresh {

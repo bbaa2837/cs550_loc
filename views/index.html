@@ -7,21 +7,26 @@
         <div id="wrapper">
             <!-- 크게 화면 레이아웃을 세 분류로 나눴음 nav, section, aside-->
             <nav>
-                <div id="champ_left">                    
-                    <img id="champ_1" src="/images/nan_left.jpg" onclick="showitem(this)">
+                <div id="champ_left" class="team">                    
+                    <img class="champ" id="champ_1" src="/images/nan_left.jpg" onclick="showitem(this)">
                     <!-- <img id="champ_1" src="/images/champion_images/ahri.png"> -->
+                    <img class="mast" id="mastery_1" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_left">
-                    <img id="champ_4" src="/images/nan_left.jpg" onclick="showitem(this)">
+                <div id="champ_left" class="team">
+                    <img class="champ" id="champ_4" src="/images/nan_left.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_4" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_left">
-                    <img id="champ_5" src="/images/nan_left.jpg" onclick="showitem(this)">
+                <div id="champ_left" class="team">
+                    <img class="champ" id="champ_5" src="/images/nan_left.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_5" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_left">
-                    <img id="champ_8" src="/images/nan_left.jpg" onclick="showitem(this)">
+                <div id="champ_left" class="team">
+                    <img class="champ" id="champ_8" src="/images/nan_left.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_8" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_left">
-                    <img id="champ_9" src="/images/nan_left.jpg" onclick="showitem(this)">
+                <div id="champ_left" class="team">
+                    <img class="champ" id="champ_9" src="/images/nan_left.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_9" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
             </nav>
             <section>
@@ -56,20 +61,25 @@
                 </div>
             </section>
             <aside>
-                <div id="champ_right">
-                    <img id="champ_2" src="/images/nan_right.jpg" onclick="showitem(this)">
+                <div id="champ_right" class="team">
+                    <img class="champ" id="champ_2" src="/images/nan_right.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_2" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_right">
-                    <img id="champ_3" src="/images/nan_right.jpg" onclick="showitem(this)">
+                <div id="champ_right" class="team">
+                    <img class="champ" id="champ_3" src="/images/nan_right.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_3" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_right">
-                    <img id="champ_6" src="/images/nan_right.jpg" onclick="showitem(this)">
+                <div id="champ_right" class="team">
+                    <img class="champ" id="champ_6" src="/images/nan_right.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_6" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_right">
-                    <img id="champ_7" src="/images/nan_right.jpg" onclick="showitem(this)">
+                <div id="champ_right" class="team">
+                    <img class="champ" id="champ_7" src="/images/nan_right.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_7" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
-                <div id="champ_right">
-                    <img id="champ_10" src="/images/nan_right.jpg" onclick="showitem(this)">
+                <div id="champ_right" class="team">
+                    <img class="champ" id="champ_10" src="/images/nan_right.jpg" onclick="showitem(this)">
+                    <img class="mast" id="mastery_10" src="/images/mastery_images/blank.png" style="display: none">
                 </div>
             </aside>
         </div>
@@ -171,6 +181,9 @@
                     imag.style = 'opacity : 1'
                     papa = imag.parentElement
                 }
+                masimg = document.getElementById('mastery_'+ (i + 1))
+                masimg.style.display = 'none';
+                masimg.src = "/images/mastery_images/blank.png";                
             }
             document.getElementById('score_left').innerHTML = '';
             document.getElementById('score_right').innerHTML = '';
@@ -188,8 +201,12 @@
             pickedchampions[picknum - 1] = img.id
             pick = document.getElementById(path)
             pick.src = src
+            img2 = document.getElementById('champ_' + picknum)
+            champname = img2.src.replace('http://localhost:4000/images/champion_images/','')
+            masimg = document.getElementById('mastery_'+img2.id.split('_')[1])
+            masimg.style.display = 'block';
+            masimg.src = "/images/mastery_images/" + champname;
             picknum += 1
-            console.log(pickedchampions)
             if(pickedchampions[9] != 'None'){
                 calculatescore()
             }
@@ -210,7 +227,7 @@
             champname = img.src.replace('http://localhost:4000/images/champion_images/','')
             if(champname.length < 15){
                 modal.style.display = "block";
-                modal_item.src = "http://localhost:4000/images/champion_images/" + champname;
+                modal_item.src = "http://localhost:4000/images/item_images/" + champname;
             }
         }
         span.onclick = function() {
