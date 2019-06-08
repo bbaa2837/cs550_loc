@@ -177,7 +177,7 @@
                 if(pickedchampions[i] != 'None'){
                     const imag = document.getElementById(pickedchampions[i])
                     imag.onclick = function() {imageclick(imag)}
-                    console.log(imag.onclick)
+                    // console.log(imag.onclick)
                     imag.style = 'opacity : 1'
                     papa = imag.parentElement
                 }
@@ -203,8 +203,12 @@
             pick.src = src
             img2 = document.getElementById('champ_' + picknum)
             champname = img2.src.replace('http://localhost:4000/images/champion_images/','')
+            console.log(champname)
             masimg = document.getElementById('mastery_'+img2.id.split('_')[1])
+            console.log(masimg)
+            console.log(masimg.style.display)
             masimg.style.display = 'block';
+            console.log(masimg.style.display)
             masimg.src = "/images/mastery_images/" + champname;
             picknum += 1
             if(pickedchampions[9] != 'None'){

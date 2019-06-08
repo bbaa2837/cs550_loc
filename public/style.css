@@ -41,7 +41,7 @@ div#champ_left{
     position: relative;
     width: 100%;   
     height: 19.4%;
-    display: block;
+    /* display: block; */
     text-align: center;
 }
 div#champ_right{
@@ -50,7 +50,7 @@ div#champ_right{
     position: relative;
     width: 100%;   
     height: 19.4%;
-    display: block;
+    /* display: block; */
     text-align: center;
 }
 nav img, aside img {
@@ -72,7 +72,8 @@ nav img, aside img {
     width: 30%;
 }
 .team {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     vertical-align: middle;
 }
 h1 {
