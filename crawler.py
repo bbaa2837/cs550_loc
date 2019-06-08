@@ -96,6 +96,6 @@ def crawl_winrate():
 #     print(wr_list)
     f.close()
 
-crawl_list()
-crawl_champnum()
+# crawl_list()
+# crawl_champnum()
 crawl_winrate()
