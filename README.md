@@ -16,6 +16,7 @@ cd cs550_loc
 ```
 ./start_setup.sh
 
+pip install keras
 pip install tensorflow
 pip install pandas
 pip install numpy
