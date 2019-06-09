@@ -3,7 +3,7 @@
 
 ### Environments Specification
 1. Web browser: Chrome, Safari
-2. Python v3.5 or higher
+2. Python v3.6
 3. Nodejs v10.15.3
 
 ### Downloading
@@ -15,6 +15,10 @@ cd cs550_loc
 ### Before Start
 ```
 ./start_setup.sh
+
+pip install tensorflow
+pip install pandas
+pip install numpy
 ```
 
 ### Running
