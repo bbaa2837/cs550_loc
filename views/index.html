@@ -226,38 +226,44 @@
         
         function calculatescore() {
             ///run python
-
-            var champs = ""
-            for (var i = 0; i < 10; i++) {
-                champs += (pickedchampions[i])
-                if (i != 9)
-                    champs += '.'
-            }
-
-            console.log(champs);
-
-            var xmlhttp = new XMLHttpRequest();
-            // var url='http://localhost:4000/predict-score/'+champs;
-            var url='/predict-score/'+champs;
-            document.getElementById('score_left').innerHTML = "Calculating";
-            document.getElementById('score_right').innerHTML = "Calculating";
-
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    console.log('response:' + this.responseText);
-                    var scores = this.responseText.split(",");
-
-                    var blue_score = scores[0]
-                    var red_score = scores[1]
-
-                    document.getElementById('score_left').innerHTML = blue_score;
-                    document.getElementById('score_right').innerHTML = red_score;
+            console.log('bbb')
+            console.log(pickedchampions)
+            if(pickedchampions.includes('yuumi')){
+                console.log('aaa')
+                alert('Yuumi not trained yet(Lack of Data, New Champion)')
+            } else{
+                var champs = ""
+                for (var i = 0; i < 10; i++) {
+                    champs += (pickedchampions[i])
+                    if (i != 9)
+                        champs += '.'
                 }
-                // console.log(xmlhttp.responseText)
-            }
 
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
+                console.log(champs);
+
+                var xmlhttp = new XMLHttpRequest();
+                // var url='http://localhost:4000/predict-score/'+champs;
+                var url='/predict-score/'+champs;
+                document.getElementById('score_left').innerHTML = "Calculating";
+                document.getElementById('score_right').innerHTML = "Calculating";
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log('response:' + this.responseText);
+                        var scores = this.responseText.split(",");
+
+                        var blue_score = scores[0]
+                        var red_score = scores[1]
+
+                        document.getElementById('score_left').innerHTML = blue_score;
+                        document.getElementById('score_right').innerHTML = red_score;
+                    }
+                    // console.log(xmlhttp.responseText)
+                }
+
+                xmlhttp.open("GET", url, true);
+                xmlhttp.send();
+            }
 
             // var left = 1;
             // var right = 2;
