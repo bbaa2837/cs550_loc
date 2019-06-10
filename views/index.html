@@ -220,19 +220,50 @@
                     calculatescore()
                 }
             }
+
+            console.log(pickedchampions)
         }
         
         function calculatescore() {
             ///run python
-            var left = 1;
-            var right = 2;
-            document.getElementById('score_left').innerHTML = left;
-            document.getElementById('score_right').innerHTML = right;
+
+            var champs = ""
+            for (var i = 0; i < 10; i++) {
+                champs += (pickedchampions[i])
+                if (i != 9)
+                    champs += '.'
+            }
+
+            console.log(champs);
+
+            var xmlhttp = new XMLHttpRequest();
+            var url='http://localhost:4000/predict-score/'+champs;
+
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    console.log('response:' + this.responseText);
+                    var scores = this.responseText.split(",");
+
+                    var blue_score = scores[0]
+                    var red_score = scores[1]
+
+                    document.getElementById('score_left').innerHTML = blue_score;
+                    document.getElementById('score_right').innerHTML = red_score;
+                }
+                // console.log(xmlhttp.responseText)
+            }
+
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            // var left = 1;
+            // var right = 2;
         }
 
         var modal = document.getElementById("myModal");
         var span = document.getElementsByClassName("close")[0];
         var modal_item = document.getElementById("modal_item");
+        
         function showitem(img) {
             // champname = img.src.replace('http://localhost:4000/images/champion_images/','')
             champname = img.src.split('/images/champion_images/')[1]
@@ -242,9 +273,11 @@
                 modal_item.src = "/images/item_images/" + champname;
             }
         }
+        
         span.onclick = function() {
             modal.style.display = "none";
         }
+
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";

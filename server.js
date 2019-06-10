@@ -200,5 +200,3 @@ app.get('/info', function(req, res){
 // const dbconfig = require('./config/database.js');
 // const connection = mysql.createConnection(dbconfig);
 
-
-
