@@ -37,7 +37,7 @@ module.exports = function(app)
       console.log(champ6+champ7+champ8+champ9+champ10);
 
       var spawn = require('child_process').spawn;
-      var subprocess = spawn('python', [
+      var subprocess = spawn('python3', [
                                 './router/predict-score.py',
                                 champ1, champ2, champ3,
                                 champ4, champ5, champ6,
