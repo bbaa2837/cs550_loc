@@ -8,8 +8,8 @@ def crawl_list():
     req = requests.get(url)
     plain_text = req.text
     soup = BeautifulSoup(plain_text, 'html.parser')
-    temp = [0] * 143
-    champ_name = [0] * 143
+    temp = [0] * 144
+    champ_name = [0] * 144
 #     champ_link = [0] * 143
     for i in range(len(champ_name)):
         temp[i] = soup.select(
@@ -30,6 +30,7 @@ def crawl_img(champ_name):
     img_content = source_code.content
     dir_path = os.path.dirname(os.path.realpath(__file__))
     filename = dir_path + '/public/images/champion_images/' + champ_name + '.png'
+    print(champ_name)
     with open(filename, "wb") as f:
         f.write(img_content)
 
@@ -96,6 +97,6 @@ def crawl_winrate():
 #     print(wr_list)
     f.close()
 
-# crawl_list()
+crawl_list()
 # crawl_champnum()
-crawl_winrate()
+# crawl_winrate()

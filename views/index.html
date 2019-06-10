@@ -110,7 +110,7 @@
                     lists = JSON.parse(this.responseText);
                     // console.log(lists.files);
                     // console.log(lists.files[8]);
-                    for(var i = 2; i <= 143; i++){
+                    for(var i = 1; i <= 144; i++){
                         var gal_n = gal.cloneNode();
                         var image_n = image.cloneNode();
                         image_n.id = lists.files[i].split('.')[0];
@@ -120,7 +120,8 @@
                     }
                 }
             }
-            xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
+            // xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
+            xmlhttp.open("GET", "/champ_list", true);
             xmlhttp.send();
         }
         // function showchampion(champnames) {
@@ -148,7 +149,8 @@
                     }
                 }
             }
-            xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
+            // xmlhttp.open("GET", "http://localhost:4000/champ_list", true);
+            xmlhttp.open("GET", "/champ_list", true);
             xmlhttp.send();
         }
         
@@ -193,26 +195,30 @@
         }
             
         function imageclick(img) {
-            var src = img.src
-            var path = 'champ_' + picknum
-            img.onclick = 'false'
-            img.style = 'opacity : 0.2'
-            papa = img.parentElement
-            pickedchampions[picknum - 1] = img.id
-            pick = document.getElementById(path)
-            pick.src = src
-            img2 = document.getElementById('champ_' + picknum)
-            champname = img2.src.replace('http://localhost:4000/images/champion_images/','')
-            console.log(champname)
-            masimg = document.getElementById('mastery_'+img2.id.split('_')[1])
-            console.log(masimg)
-            console.log(masimg.style.display)
-            masimg.style.display = 'block';
-            console.log(masimg.style.display)
-            masimg.src = "/images/mastery_images/" + champname;
-            picknum += 1
-            if(pickedchampions[9] != 'None'){
-                calculatescore()
+            if(picknum <= 10)
+            {
+                var src = img.src
+                var path = 'champ_' + picknum
+                img.onclick = 'false'
+                img.style = 'opacity : 0.2'
+                papa = img.parentElement
+                pickedchampions[picknum - 1] = img.id
+                pick = document.getElementById(path)
+                pick.src = src
+                img2 = document.getElementById('champ_' + picknum)
+                // champname = img2.src.replace('http://localhost:4000/images/champion_images/','')
+                champname = img2.src.split('/images/champion_images/')[1]
+                console.log(champname)
+                masimg = document.getElementById('mastery_'+img2.id.split('_')[1])
+                console.log(masimg)
+                console.log(masimg.style.display)
+                masimg.style.display = 'block';
+                console.log(masimg.style.display)
+                masimg.src = "/images/mastery_images/" + champname;
+                picknum += 1
+                if(pickedchampions[9] != 'None'){
+                    calculatescore()
+                }
             }
         }
         
@@ -228,10 +234,12 @@
         var span = document.getElementsByClassName("close")[0];
         var modal_item = document.getElementById("modal_item");
         function showitem(img) {
-            champname = img.src.replace('http://localhost:4000/images/champion_images/','')
+            // champname = img.src.replace('http://localhost:4000/images/champion_images/','')
+            champname = img.src.split('/images/champion_images/')[1]
             if(champname.length < 15){
                 modal.style.display = "block";
-                modal_item.src = "http://localhost:4000/images/item_images/" + champname;
+                // modal_item.src = "http://localhost:4000/images/item_images/" + champname;
+                modal_item.src = "/images/item_images/" + champname;
             }
         }
         span.onclick = function() {

@@ -21,8 +21,8 @@ nav, section, aside {
 nav {
     margin-left: 2%;
     width: 15%;
-    border: 3px solid;
-    border-color: blue;
+    /* border: 3px solid; */
+    /* border-color: #003794; */
     height: 97%;
 }
 section {
@@ -30,14 +30,14 @@ section {
 }
 aside {
     width: 15%;
-    border: 3px solid;
-    border-color: red;
+    /* border: 3px solid; */
+    /* border-color: #9a0000; */
     height: 97%;
     position:relative;
 }
 div#champ_left{
     border: 3px solid;
-    border-color: blue;
+    border-color: #003794;
     position: relative;
     width: 100%;   
     height: 19.4%;
@@ -46,7 +46,7 @@ div#champ_left{
 }
 div#champ_right{
     border: 3px solid;
-    border-color: red;
+    border-color: #9a0000;
     position: relative;
     width: 100%;   
     height: 19.4%;
@@ -88,9 +88,11 @@ h1 {
     width: 100%;
 }
 #good {
-    border: 3px solid;
-    border-color: green;
+    /* border: 3px solid;
+    border-color: green; */
+    border: double #004f09;
     margin: 5px;
+    margin-bottom: 10px;
     height: 25%;
 }
 .score h1{
@@ -111,6 +113,7 @@ h1 {
     width: 30%;
     height: 5%;
     margin-bottom: 3px;
+    margin-left: 5px;
 }
 
 .refresh {
@@ -118,6 +121,7 @@ h1 {
     width: 30%;
     height: 5%;
     margin-bottom: 3px;
+    margin-right: 5px;
     float: right;
 }
 
@@ -160,7 +164,9 @@ form.search_text::after {
     width: 100%;
     height: 42%;
     display: inline-block;
+    margin: 5px;
     overflow-y: scroll;
+    border: 1px inset #132b2b;
 }
 div.gallery {
     margin: 5px;
