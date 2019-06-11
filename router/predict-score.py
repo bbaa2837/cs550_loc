@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 import sys
 
-model = load_model('./router/model4.h5')
+model = load_model('./router/model5.h5')
 # model.summary()
 
 # testing_data = pd.read_csv('testing-data-unnormalized-processed.csv', delimiter=',')
@@ -70,7 +70,7 @@ for line in championid_file:
   temp = line.strip().split(',')
   # print(temp)
   # exit(1)
-  championid_map[temp[1]] = [int(temp[3])/143, temp[4]]
+  championid_map[temp[1]] = [int(temp[3])/143.0, temp[4]]
 # championid_file.close()
 
 champion_list1 = sys.argv[1:]
