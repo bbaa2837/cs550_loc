@@ -258,10 +258,10 @@
 
                         var blue_score = scores[0]
                         var red_score = scores[1]
-
+                        
                         document.getElementById('score_left').innerHTML = blue_score;
                         document.getElementById('score_right').innerHTML = red_score;
-                        if(blue_score>red_score){
+                        if(Number(blue_score)>Number(red_score)){
                             document.getElementById('score_right').style.opacity = 0.5;
                             document.getElementById('score_left').style.opacity = 1;
                             document.getElementById('score_left').style.textDecoration = 'underline';
@@ -289,7 +289,8 @@
         function showitem(img) {
             // champname = img.src.replace('http://localhost:4000/images/champion_images/','')
             champname = img.src.split('/images/champion_images/')[1]
-            if(champname.length < 15){
+            console.log(champname);
+            if(champname.length < 30){
                 modal.style.display = "block";
                 // modal_item.src = "http://localhost:4000/images/item_images/" + champname;
                 modal_item.src = "/images/item_images/" + champname;
