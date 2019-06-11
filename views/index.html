@@ -189,6 +189,10 @@
             }
             document.getElementById('score_left').innerHTML = '';
             document.getElementById('score_right').innerHTML = '';
+            document.getElementById('score_left').style.opacity = 1;
+            document.getElementById('score_right').style.opacity = 1;
+            document.getElementById('score_left').style.textDecoration = 'none';
+            document.getElementById('score_right').style.textDecoration = 'none';
             pickleft = true;
             picknum = 1;
             pickedchampions = ['None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None', 'None'];    
@@ -257,6 +261,15 @@
 
                         document.getElementById('score_left').innerHTML = blue_score;
                         document.getElementById('score_right').innerHTML = red_score;
+                        if(blue_score>red_score){
+                            document.getElementById('score_right').style.opacity = 0.5;
+                            document.getElementById('score_left').style.opacity = 1;
+                            document.getElementById('score_left').style.textDecoration = 'underline';
+                        } else {
+                            document.getElementById('score_left').style.opacity = 0.5;
+                            document.getElementById('score_right').style.opacity = 1;
+                            document.getElementById('score_right').style.textDecoration = 'underline';
+                        }
                     }
                     // console.log(xmlhttp.responseText)
                 }
