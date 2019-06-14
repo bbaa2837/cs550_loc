@@ -2,7 +2,6 @@
 // const request = require('request');
 // const rp = require('request-promise');
 
-const key = '?api_key=RGAPI-2df11584-d47d-455f-bcd1-94ff695c6ec2';
 const kor_url = 'https://kr.api.riotgames.com';
 const summoner = '/lol/summoner/v4/summoners/by-name/';
 const matchbyaccountid = '/lol/match/v4/matchlists/by-account/';
