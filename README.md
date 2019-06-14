@@ -25,7 +25,15 @@ For window users (path for python should be python3)
 
 
 ### Running
+To turn server on, run code below
 ```
 npm run dev:server
+```
+To turn client-side browser on go to url
+```
+localhost:3000
+```
+To run browser-sync client, run code below in different terminal
+```
 npm run dev:client
 ```
