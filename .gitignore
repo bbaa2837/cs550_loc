@@ -3,5 +3,5 @@ node_modules
 # public/images/mastery_images/*.png
 .vscode
 .DS_Store
-*.csv
-*.txt
+#*.csv
+#*.txt

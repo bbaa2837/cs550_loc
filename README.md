@@ -13,34 +13,19 @@ cd cs550_loc
 ```
 
 ### Before Start
+For mac users
 ```
-./start_setup.sh
+./start_setup_mac.sh
+```
 
-pip install keras
-pip install tensorflow
-pip install pandas
-pip install numpy
+For window users (path for python should be python3)
 ```
+./start_setup_window.sh
+```
+
 
 ### Running
 ```
 npm run dev:server
 npm run dev:client
 ```
-
-### Preprocessing data
-Change iteration of data collection -> change numofiterations in server.js(line 17).
-
-
-For changing champion id to name
-```
-python3 champion-id-to-name-converter.py <csv file you want to convert>
-```
-
-For gathering win rate for champions of each player
-```
-python3 crawler-winrate.py summonname-champname.csv
-```
-
-### DB
-check the database connection from localhost:3000/info
