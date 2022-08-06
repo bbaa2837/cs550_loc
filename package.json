@@ -12,6 +12,6 @@
         "dev:client": "browser-sync start -w --port 4000 --proxy localhost:3000 --files . --reload-delay 100"
     },
     "dependencies": {
-        "mongoose": "^5.5.10"
+        "mongoose": "^5.7.5"
     }
 }
